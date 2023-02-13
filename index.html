@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="stopwatch">My Home Page</title>
+  <link rel="icon" href="asset/home_icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Kupa's HomePage</h1>
+  <div class="top-right">
+    <a id="github" href="https://github.com/kupa-alpha">
+      <img src="asset/icon_github.jpg" alt="">
+    </a>
+  </div>
+  
+  <div class="horizontal_section">
+    <a href="https://www.google.com/">
+      <img class="responsive_icon" src="asset/google_icon.png" alt="google">
+    </a>
+    <a href="https://mail.google.com/mail/u/0/#inbox">
+      <img class="responsive_icon" src="asset/gmail_icon.png" alt="gmail">
+    </a>
+    <a href="https://translate.google.com.hk/?hl=en&sl=en&tl=zh-TW&op=translate">
+      <img class="responsive_icon" src="asset/translate_icon.png" alt="translate">
+    </a>
+    <a href="https://www.youtube.com/">
+      <img class="responsive_icon" src="asset/youtube_icon.png" alt="youtube">
+    </a>
+    <a href="https://drive.google.com/drive/u/0/my-drive">
+      <img class="responsive_icon" src="asset/drive_icon.png" alt="drive_icon">
+    </a>
+    <a href="https://calendar.google.com/calendar/u/0/r/week?">
+      <img class="responsive_icon" src="asset/calendar_icon.png" alt="calendar">
+    </a>
+    <a href="https://www.google.com.hk/maps">
+      <img class="responsive_icon" src="asset/map_icon.png" alt="map">
+    </a>
+    <a href="https://web.whatsapp.com/">
+      <img class="responsive_icon" src="asset/whastapp_icon.png" alt="whatsapp">
+    </a>
+  </div>
+
+  <div id="clock"></div>
+  
+  <div id="grid-outer">
+    <div id="grid-container-for-sections">
+      <div class="section_1">
+        <span class="title"></span>
+        <p>
+          <a class="URL_button" href="https://hkuportal.hku.hk/login.html">Portal</a> <br>
+          <a class="URL_button" href="https://moodle.hku.hk/">Moodle</a> <br>
+          <a class="URL_button" href="https://lib.hku.hk/hkulauth/legacy/authMain?uri=https://booking.lib.hku.hk/getpatron.aspx">LIB booking</a> <br>
+          <a class="URL_button" href="https://fcbooking.cse.hku.hk">CSE booking</a> <br>
+        </p>
+      </div>
+      <div class="section_2">
+        <span class="title"></span>
+        <p>
+          <a class="URL_button" href="https://moodle.hku.hk/course/view.php?id=102786">Econ Data Analysis</a> <br>
+          <a class="URL_button" href="https://moodle.hku.hk/course/view.php?id=98707">Maths</a> <br>
+          <a class="URL_button" href="https://moodle.hku.hk/course/view.php?id=97427">FinTech</a> <br>
+          <a class="URL_button" href="https://moodle.hku.hk/course/view.php?id=102946">IIMT lecture</a> <br>
+          <a class="URL_button" href="https://moodle.hku.hk/course/view.php?id=102944">IIMT lab</a> <br>
+          <a class="URL_button" href="https://moodle.hku.hk/course/view.php?id=96791">Macroeconomics</a> <br>
+        </p>
+      </div>
+      <div class="section_3">
+        <span class="title"></span>
+        <p>
+          <a class="URL_button" href="https://colab.research.google.com/">colab</a> <br>
+          <a class="URL_button" href="https://www.geogebra.org/scientific?lang=en">scientific calc</a> <br>
+          <a class="URL_button" href="https://www.geogebra.org/graphing">graph calc</a> <br>
+          <a class="URL_button" href="https://www.wolframalpha.com/">wolframalpha</a> <br>
+          <a class="URL_button" href="https://www.notion.so/hkucss/The-Future-of-Sustainable-Business-0d0a2a1f18de4f2882ec6f830909e2ab">notion BSR</a> <br>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="footer">
+    <a href="https://www.twitch.tv/">twitch</a>
+    <a href="https://www.tradingview.com/chart/7HR2PlwX/?symbol=HSI%3AHSI">tradingview</a>
+    <a href="http://www.etnet.com.hk/www/tc/home/index.php">etnet</a>
+    <a href="https://www.binance.com/en/markets/favorite">binance</a>
+    <a href="https://www.bybit.com/data/markets/contract">bybit</a>
+    <a href="https://www.chegg.com/">chegg</a>
+    <a href="https://www.linkedin.com/">linkedin</a>
+    <a href="Tomoto/index.html">come</a>
+  </div>
+  
+  <script src="clock.js"></script>
+  <script src="stopwatch.js"></script>
+
+  <script>
+    window.onload = function() {
+      realtimeClock();
+      stopwatch();
+    }
+  </script>
+
+</body>
+</html>
