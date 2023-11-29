@@ -1,2 +1,1 @@
-https://kupa-alpha.github.io/
-https://kupa-alpha.github.io/Tomoto/index.html
+https://alvinku0.github.io/
