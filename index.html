@@ -12,7 +12,7 @@
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background-image: linear-gradient(45deg, #000000c4 0%, #797979 51%, #272727c4 100%);
+      background: url('asset/Bern_photo.jpg') center center/cover no-repeat fixed, linear-gradient(45deg, #000000c4 0%, #797979 51%, #272727c4 100%);
       min-height: 100vh;
       color: #fff9c2;
       overflow-x: hidden;
@@ -78,10 +78,10 @@
 
     /* Apps Container with Glass Effect */
     .apps-container {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 249, 194, 0.3);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 249, 194, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       width: fit-content;
       margin: 0 auto;
       cursor: pointer;
@@ -95,7 +95,7 @@
 
     .header-app-item:hover {
       transform: translateY(-3px);
-      background: rgba(255, 249, 194, 0.1) !important;
+      background: rgba(255, 249, 194, 0.05) !important;
       backdrop-filter: blur(10px);
     }
 
@@ -126,9 +126,9 @@
       color: #fff9c2;
       font-size: 2.5rem;
       transition: all 0.3s ease;
-      background: rgba(255, 249, 194, 0.1);
+      background: rgba(255, 249, 194, 0.02);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 249, 194, 0.3);
+      border: 1px solid rgba(255, 249, 194, 0.08);
       width: 60px;
       height: 60px;
       cursor: pointer;
@@ -136,7 +136,7 @@
 
     .github-link:hover {
       transform: scale(1.1);
-      background: rgba(255, 249, 194, 0.2);
+      background: rgba(255, 249, 194, 0.04);
       color: #fff9c2;
     }
 
@@ -146,18 +146,25 @@
       font-weight: 300;
       color: #fff9c2;
       text-shadow: 0 3px 6px rgba(0,0,0,0.6);
-      background: rgba(255, 249, 194, 0.1);
+      background: rgba(255, 249, 194, 0.02);
       backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 249, 194, 0.3);
+      border: 1px solid rgba(255, 249, 194, 0.08);
       cursor: pointer;
+      width: 230px;
+      height: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
     }
 
     /* Footer */
     .footer-section {
-      background: rgba(255, 249, 194, 0.1);
+      background: rgba(255, 249, 194, 0.02);
       backdrop-filter: blur(20px);
-      box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
-      border-top: 1px solid rgba(255, 249, 194, 0.3);
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+      border-top: 1px solid rgba(255, 249, 194, 0.08);
       cursor: pointer;
     }
 
@@ -171,7 +178,7 @@
     }
 
     .footer-links a:hover {
-      background: rgba(255, 249, 194, 0.2);
+      background: rgba(255, 249, 194, 0.1);
       color: #fff9c2;
       transform: translateY(-1px);
       backdrop-filter: blur(10px);
@@ -181,6 +188,29 @@
       color: rgba(255, 249, 194, 0.6);
       font-weight: 300;
       user-select: none;
+    }
+
+    /* Fixed top navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: transparent;
+      padding: 10px 0;
+    }
+
+    .weather-github-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* Main content padding to account for fixed header */
+    .main-content {
+      padding-top: 140px;
     }
 
     /* Responsive adjustments */
@@ -220,6 +250,24 @@
       .footer-links a {
         font-size: 0.75rem;
       }
+
+      /* Mobile layout: apps go to second row */
+      .top-nav {
+        padding: 10px 0 5px 0;
+      }
+
+      .weather-github-container {
+        margin-bottom: 10px;
+      }
+
+      .apps-container {
+        width: 100%;
+        margin: 0;
+      }
+
+      .main-content {
+        padding-top: 180px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -235,70 +283,142 @@
         width: 45px;
         height: 45px;
       }
+
+      .main-content {
+        padding-top: 200px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container-fluid px-4 py-3">
-    <!-- Header -->
-    <div class="row align-items-center mb-4">
-      <!-- Weather Logo -->
-      <div class="col-auto">
-        <a href="https://www.google.com/search?q=weather" class="text-decoration-none">
-          <div class="weather-logo">
-            <div class="sun"></div>
-            <div class="cloud"></div>
+  <!-- Fixed Top Navigation -->
+  <div class="top-nav">
+    <div class="container-fluid px-4">
+      <!-- Desktop layout: weather - apps - github in one row -->
+      <div class="d-none d-md-flex align-items-center">
+        <div class="weather-github-container">
+          <!-- Weather Logo -->
+          <div>
+            <a href="https://www.google.com/search?q=weather" class="text-decoration-none">
+              <div class="weather-logo">
+                <div class="sun"></div>
+                <div class="cloud"></div>
+              </div>
+            </a>
           </div>
-        </a>
-      </div>
-      
-      <!-- Apps in Glass Container -->
-      <div class="col">
-        <div class="apps-container rounded-4 px-4 py-3">
-          <div class="d-flex justify-content-center gap-4 flex-wrap">
-            <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://www.google.com/">
-              <img src="asset/google_icon.png" alt="Google">
-              <span class="header-app-label">Google</span>
-            </a>
-            <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://mail.google.com/mail/u/0/#inbox">
-              <img src="asset/gmail_icon.png" alt="Gmail">
-              <span class="header-app-label">Gmail</span>
-            </a>
-            <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://translate.google.com.hk/?hl=en&sl=en&tl=zh-TW&op=translate">
-              <img src="asset/translate_icon.png" alt="Translate">
-              <span class="header-app-label">Translate</span>
-            </a>
-            <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://www.youtube.com/">
-              <img src="asset/youtube_icon.png" alt="YouTube">
-              <span class="header-app-label">YouTube</span>
-            </a>
-            <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://drive.google.com/drive/u/0/my-drive">
-              <img src="asset/drive_icon.png" alt="Drive">
-              <span class="header-app-label">Drive</span>
-            </a>
-            <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://calendar.google.com/calendar/u/0/r/week">
-              <img src="asset/calendar_icon.png" alt="Calendar">
-              <span class="header-app-label">Calendar</span>
-            </a>
-            <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://www.google.com.hk/maps">
-              <img src="asset/map_icon.png" alt="Maps">
-              <span class="header-app-label">Maps</span>
+          
+          <!-- Apps in Glass Container -->
+          <div class="flex-grow-1 d-flex justify-content-center">
+            <div class="apps-container rounded-4 px-4 py-3">
+              <div class="d-flex justify-content-center gap-4 flex-wrap">
+                <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://www.google.com/">
+                  <img src="asset/google_icon.png" alt="Google">
+                  <span class="header-app-label">Google</span>
+                </a>
+                <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://mail.google.com/mail/u/0/#inbox">
+                  <img src="asset/gmail_icon.png" alt="Gmail">
+                  <span class="header-app-label">Gmail</span>
+                </a>
+                <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://translate.google.com.hk/?hl=en&sl=en&tl=zh-TW&op=translate">
+                  <img src="asset/translate_icon.png" alt="Translate">
+                  <span class="header-app-label">Translate</span>
+                </a>
+                <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://www.youtube.com/">
+                  <img src="asset/youtube_icon.png" alt="YouTube">
+                  <span class="header-app-label">YouTube</span>
+                </a>
+                <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://drive.google.com/drive/u/0/my-drive">
+                  <img src="asset/drive_icon.png" alt="Drive">
+                  <span class="header-app-label">Drive</span>
+                </a>
+                <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://calendar.google.com/calendar/u/0/r/week">
+                  <img src="asset/calendar_icon.png" alt="Calendar">
+                  <span class="header-app-label">Calendar</span>
+                </a>
+                <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://www.google.com.hk/maps">
+                  <img src="asset/map_icon.png" alt="Maps">
+                  <span class="header-app-label">Maps</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- GitHub Link -->
+          <div>
+            <a class="github-link text-decoration-none d-flex align-items-center justify-content-center rounded-circle" href="https://github.com/alvinku0?tab=repositories">
+              <i class="bi bi-github"></i>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- GitHub Link -->
-      <div class="col-auto">
-        <a class="github-link text-decoration-none d-flex align-items-center justify-content-center rounded-circle" href="https://github.com/alvinku0?tab=repositories">
-          <i class="bi bi-github"></i>
-        </a>
+      <!-- Mobile layout: weather and github on top, apps below -->
+      <div class="d-md-none">
+        <div class="weather-github-container mb-2">
+          <!-- Weather Logo -->
+          <div>
+            <a href="https://www.google.com/search?q=weather" class="text-decoration-none">
+              <div class="weather-logo">
+                <div class="sun"></div>
+                <div class="cloud"></div>
+              </div>
+            </a>
+          </div>
+
+          <!-- GitHub Link -->
+          <div>
+            <a class="github-link text-decoration-none d-flex align-items-center justify-content-center rounded-circle" href="https://github.com/alvinku0?tab=repositories">
+              <i class="bi bi-github"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Apps in Glass Container -->
+        <div class="d-flex justify-content-center">
+          <div class="apps-container rounded-4 px-3 py-2">
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://www.google.com/">
+                <img src="asset/google_icon.png" alt="Google">
+                <span class="header-app-label">Google</span>
+              </a>
+              <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://mail.google.com/mail/u/0/#inbox">
+                <img src="asset/gmail_icon.png" alt="Gmail">
+                <span class="header-app-label">Gmail</span>
+              </a>
+              <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://translate.google.com.hk/?hl=en&sl=en&tl=zh-TW&op=translate">
+                <img src="asset/translate_icon.png" alt="Translate">
+                <span class="header-app-label">Translate</span>
+              </a>
+              <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://www.youtube.com/">
+                <img src="asset/youtube_icon.png" alt="YouTube">
+                <span class="header-app-label">YouTube</span>
+              </a>
+              <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://drive.google.com/drive/u/0/my-drive">
+                <img src="asset/drive_icon.png" alt="Drive">
+                <span class="header-app-label">Drive</span>
+              </a>
+              <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://calendar.google.com/calendar/u/0/r/week">
+                <img src="asset/calendar_icon.png" alt="Calendar">
+                <span class="header-app-label">Calendar</span>
+              </a>
+              <a class="header-app-item text-decoration-none d-flex flex-column align-items-center p-2 rounded-3" href="https://www.google.com.hk/maps">
+                <img src="asset/map_icon.png" alt="Maps">
+                <span class="header-app-label">Maps</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Clock - Vertically Centered -->
-    <div class="d-flex align-items-center justify-content-center flex-grow-1" style="min-height: 50vh;">
-      <div id="clock" class="text-center p-4 rounded-4"></div>
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="container-fluid px-4 py-3">
+      <!-- Clock - Vertically Centered -->
+      <div class="d-flex align-items-center justify-content-center flex-grow-1" style="min-height: 50vh;">
+        <div id="clock" class="text-center p-4 rounded-4"></div>
+      </div>
     </div>
   </div>
 
